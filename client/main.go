@@ -7,7 +7,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-
+	pb "github.com/grpc-customers/customer"
 )
 
 const (
@@ -40,7 +40,7 @@ func getCustomers(client pb.CustomerClient, filter *pb.CustomerFilter) {
 		if err != nil {
 			log.Fatalf("%v.GetCustomers(_) = _, %v", client, err)
 		}
-		log.Printf("Customer: %v", customer)
+		log.Printf("Customer Added: %v", customer)
 	}
 }
 func main() {
@@ -55,22 +55,22 @@ func main() {
 
 	customer := &pb.CustomerRequest{
 		Id:    101,
-		Name:  "Shiju Varghese",
-		Email: "shiju@xyz.com",
-		Phone: "732-757-2923",
+		Name:  "Sam Song",
+		Email: "sam@song.com",
+		Phone: "214-555-5555",
 		Addresses: []*pb.CustomerRequest_Address{
 			&pb.CustomerRequest_Address{
-				Street:            "1 Mission Street",
-				City:              "San Francisco",
-				State:             "CA",
-				Zip:               "94105",
+				Street:            "123 Anywhere",
+				City:              "Dallas",
+				State:             "TX",
+				Zip:               "72455",
 				IsShippingAddress: false,
 			},
 			&pb.CustomerRequest_Address{
-				Street:            "Greenfield",
-				City:              "Kochi",
-				State:             "KL",
-				Zip:               "68356",
+				Street:            "Streetless",
+				City:              "Dallas",
+				State:             "TX",
+				Zip:               "74555",
 				IsShippingAddress: true,
 			},
 		},
@@ -81,15 +81,15 @@ func main() {
 
 	customer = &pb.CustomerRequest{
 		Id:    102,
-		Name:  "Irene Rose",
-		Email: "irene@xyz.com",
-		Phone: "732-757-2924",
+		Name:  "Sue Sang",
+		Email: "sue@sang.com",
+		Phone: "214-555-1234",
 		Addresses: []*pb.CustomerRequest_Address{
 			&pb.CustomerRequest_Address{
-				Street:            "1 Mission Street",
-				City:              "San Francisco",
-				State:             "CA",
-				Zip:               "94105",
+				Street:            "123 Some Street",
+				City:              "Dallas",
+				State:             "TX",
+				Zip:               "72334",
 				IsShippingAddress: true,
 			},
 		},
