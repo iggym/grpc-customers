@@ -1,1 +1,1 @@
-# grpc-customers
+# grpc customers server and client
